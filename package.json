@@ -8,31 +8,34 @@
   "dependencies": {
     "@sap/cds": "^6",
     "@sap/cds-hana": "^2.0.0",
-    "@sap/cds-mtxs": "^1",
-    "@sap/xssec": "^3",
+    "@sap/xssec": "^3.2.18",
     "express": "^4",
     "hdb": "^0.19.0",
     "passport": "^0"
   },
   "devDependencies": {
+    "@sap/hdi-deploy": "4.6.1",
+    "@sap/ux-specification": "^1.108.10",
+    "rimraf": "^3.0.2",
     "sqlite3": "^5"
   },
   "scripts": {
-    "start": "cds-serve"
+    "start": "cds-serve",
+    "watch-browsecatalog": "cds watch --open browsecatalog/webapp/index.html?sap-ui-xx-viewCache=false",
+    "undeploy": "cf undeploy bookshop --delete-services --delete-service-keys --delete-service-brokers",
+    "build": "rimraf resources mta_archives && mbt build --mtar archive",
+    "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
   },
   "cds": {
     "requires": {
-      "db": "sql",
-      "[hybrid]": {
-        "db": "hana-cloud"
-      },
-      "[production]": {
-        "auth": "xsuaa",
-        "db": "hana-cloud"
-      },
-      "multitenancy": true,
-      "extensibility": true
-    },
-    "profile": "with-mtx-sidecar"
-  }
+      "db": "hana-cloud",
+      "CE_PRODUCT_0002": {
+        "kind": "odata",
+        "model": "srv/external/CE_PRODUCT_0002"
+      }
+    }
+  },
+  "sapux": [
+    "app/browsecatalog"
+  ]
 }
