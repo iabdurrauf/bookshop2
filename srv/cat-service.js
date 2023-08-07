@@ -15,6 +15,16 @@ module.exports = async function (){
 
   // Add some discount for overstocked books
   this.after ('READ','Books', each => {
-    if (each.stock > 111)  each.title += ` -- 11% discount!`
+    if (each.stock >= 100) {
+      each.discount = `20% off`
+      each.price *= 0.8
+    } else if (each.stock >= 50 && each.stock <= 99) {
+      each.discount = `15% off`
+      each.price *= 0.85
+    }
+    else if (each.stock >= 20 && each.stock <= 49) {
+      each.discount = `10% off`
+      each.price *= 0.9
+    }
   })
 }

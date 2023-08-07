@@ -12,6 +12,7 @@ entity Books : managed {
   stock  : Integer;
   price  : Decimal(9,2);
   currency : Currency;
+  discount : String(111);
 }
 
 entity Authors : managed { 

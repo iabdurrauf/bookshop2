@@ -99,7 +99,6 @@
             "css": []
         },
         "routing": {
-            "config": {},
             "routes": [
                 {
                     "pattern": ":?query:",
@@ -127,6 +126,31 @@
                                         "route": "BooksObjectPage"
                                     }
                                 }
+                            },
+                            "initialLoad": "Enabled",
+                            "controlConfiguration": {
+                                "@com.sap.vocabularies.UI.v1.LineItem": {
+                                    "columns": {
+                                        "DataField::title": {
+                                            "width": "auto"
+                                        },
+                                        "DataField::author_name": {
+                                            "width": "auto"
+                                        },
+                                        "DataField::genre": {
+                                            "width": "auto"
+                                        },
+                                        "DataField::stock": {
+                                            "width": "auto"
+                                        },
+                                        "DataField::price": {
+                                            "width": "auto"
+                                        },
+                                        "DataField::discount": {
+                                            "width": "auto"
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -142,6 +166,11 @@
                         }
                     }
                 }
+            }
+        },
+        "extends": {
+            "extensions": {
+                "sap.ui.controllerExtensions": {}
             }
         }
     },

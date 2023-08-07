@@ -21,6 +21,8 @@ annotate service.Books with @(
             $Type : 'UI.DataField',
             Value : stock,
             Label : '{i18n>Stock}',
+            Criticality : stock,
+            CriticalityRepresentation : #WithIcon,
         },
         {
             $Type : 'UI.DataField',
@@ -29,7 +31,8 @@ annotate service.Books with @(
         },
         {
             $Type : 'UI.DataField',
-            Value : currency_code,
+            Value : discount,
+            Label : '{i18n>Discount}',
         },
     ]
 );
@@ -98,4 +101,7 @@ annotate service.Books with {
             $value : descr,
             ![@UI.TextArrangement] : #TextLast,
         }
+};
+annotate service.Books with {
+    price @Measures.ISOCurrency : currency_code
 };
