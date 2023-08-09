@@ -37,20 +37,7 @@ annotate service.Books with @(
     ]
 );
 annotate service.Books with @(
-    UI.HeaderFacets : [
-        {
-            $Type : 'UI.ReferenceFacet',
-            Label : '{i18n>BookInformation}',
-            ID : 'i18nBookInformation',
-            Target : '@UI.FieldGroup#i18nBookInformation',
-        },
-        {
-            $Type : 'UI.ReferenceFacet',
-            Label : '{i18n>AuthorInformation}',
-            ID : 'i18nAuthorInformation',
-            Target : '@UI.FieldGroup#i18nAuthorInformation',
-        },
-    ],
+    UI.HeaderFacets : [],
     UI.FieldGroup #i18nBookInformation : {
         $Type : 'UI.FieldGroupType',
         Data : [
@@ -102,6 +89,74 @@ annotate service.Books with {
             ![@UI.TextArrangement] : #TextLast,
         }
 };
+annotate service.Books with @(
+    UI.Facets : [
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : 'Book Information',
+            ID : 'BookInformation',
+            Target : '@UI.FieldGroup#BookInformation',
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : 'Author Information',
+            ID : 'AuthorInformation',
+            Target : '@UI.FieldGroup#AuthorInformation',
+        },
+    ],
+    UI.FieldGroup #BookInformation : {
+        $Type : 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type : 'UI.DataField',
+                Value : genre,
+                Label : '{i18n>Genre}',
+            },{
+                $Type : 'UI.DataField',
+                Value : stock,
+                Label : '{i18n>Stock}',
+            },{
+                $Type : 'UI.DataField',
+                Value : price,
+                Label : '{i18n>Price}',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : discount,
+                Label : '{i18n>Discount}',
+            },],
+    }
+);
+annotate service.Books with @(
+    UI.HeaderInfo : {
+        TypeName : '',
+        TypeNamePlural : '',
+        Title : {
+            $Type : 'UI.DataField',
+            Value : title,
+        },
+        Description : {
+            $Type : 'UI.DataField',
+            Value : descr,
+        },
+    }
+);
+
 annotate service.Books with {
     price @Measures.ISOCurrency : currency_code
 };
+annotate service.Books with @(
+    UI.FieldGroup #AuthorInformation : {
+        $Type : 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type : 'UI.DataField',
+                Value : author_name,
+                Label : '{i18n>Name}',
+            },{
+                $Type : 'UI.DataField',
+                Value : author_bio,
+                Label : '{i18n>Bio}',
+            },],
+    }
+);

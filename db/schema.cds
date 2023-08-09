@@ -21,3 +21,6 @@ entity Authors : managed {
   bio  : String(1111);
   books  : Association to many Books on books.author = $self;
 }
+
+// add title filter
+// make title filter case insensitive
