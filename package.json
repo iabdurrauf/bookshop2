@@ -27,8 +27,13 @@
     "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
   },
   "cds": {
+    "hana": {
+      "deploy-format": "hdbtable"
+    },
     "requires": {
-      "db": "hana-cloud",
+      "db": {
+        "kind": "hana"
+      },
       "CE_PRODUCT_0002": {
         "kind": "odata",
         "model": "srv/external/CE_PRODUCT_0002"
