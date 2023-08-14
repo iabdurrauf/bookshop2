@@ -1,0 +1,1 @@
+sap.ui.define(["sap/ui/model/Filter","sap/ui/model/FilterOperator"],function(e,t){"use strict";return{onCaseInsensitiveFilter:function(i){return new e({path:"title",operator:t.Contains,value1:i,caseSensitive:false})}}});

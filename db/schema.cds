@@ -1,5 +1,4 @@
 using { Currency, managed, sap } from '@sap/cds/common';
-using { CE_PRODUCT_0002 as external_api } from '../srv/external/CE_PRODUCT_0002';
 
 namespace sap.capire.bookshop; 
 

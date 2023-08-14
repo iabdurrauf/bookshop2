@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+        <ComboBox
+            id="titleID"
+            core:require="{handler: 'sap/capire/bookshop/browsecatalog/ext/titleKey/titleKey'}"
+            selectedKey="{path: 'filterValues>', type: 'sap.fe.macros.filter.type.Value', formatOptions: { operator: 'sap.capire.bookshop.browsecatalog.ext.titleKey.titleKey.onCaseInsensitiveFilter' }}"
+        >
+            <items>
+                <core:Item id="_IDGenItem1" key="0" text="cats"/>
+                <core:Item id="_IDGenItem2" key="1" text="Item2"/>
+                <core:Item id="_IDGenItem3" key="2" text="Item3"/>
+            </items>
+        </ComboBox>
+</core:FragmentDefinition>

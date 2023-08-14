@@ -150,6 +150,16 @@
                                             "width": "auto"
                                         }
                                     }
+                                },
+                                "@com.sap.vocabularies.UI.v1.SelectionFields": {
+                                    "filterFields": {
+                                        "titleKey": {
+                                            "label": "{@i18n>Title}",
+                                            "property": "title",
+                                            "template": "sap.capire.bookshop.browsecatalog.ext.titleKey.titleFragment",
+                                            "required": false
+                                        }
+                                    }
                                 }
                             }
                         }

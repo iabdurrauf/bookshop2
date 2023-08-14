@@ -160,3 +160,15 @@ annotate service.Books with @(
             },],
     }
 );
+annotate service.Books with @(
+    UI.SelectionFields : [
+        title,
+    ],
+    Capabilities.FilterFunctions : [
+        'tolower'
+    ]    
+);
+
+annotate service.Books with {
+    title @Common.Label : 'title'
+};
