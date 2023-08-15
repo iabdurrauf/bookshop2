@@ -4,5 +4,5 @@ service AdminService @(requires:'authenticated-user') {
   entity Authors as projection on my.Authors;
 
   @requires: 'authenticated-user'
-  action add (book: Books:ID, quantity: Integer);
+  action addStock(book: Books:ID, stock : Integer);
 }

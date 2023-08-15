@@ -84,7 +84,16 @@ POST {{server}}/browse/submitOrder
 Content-Type: application/json
 {{me}}
 
-{ "book":201, "quantity":5 }
+{ "book":1, "stock":5 }
+
+### ------------------------------------------------------------------------
+# Add stock as authenticated user
+# (send that three times to get out-of-stock message)
+POST {{server}}/browse/addStock
+Content-Type: application/json
+{{me}}
+
+{ "book":1, "stock":5 }
 
 
 ### ------------------------------------------------------------------------
@@ -93,3 +102,18 @@ GET {{server}}/browse/Genres?
 # &$filter=parent_ID eq null&$select=name
 # &$expand=children($select=name)
 {{me}}
+
+
+### ------------------------------------------------------------------------
+# Edit a Book entry
+PATCH {{server}}/browse/Books(1)
+Content-Type: application/json;IEEE754Compatible=true
+Authorization: Basic alice:
+
+{
+  "title": "Camels",
+  "descr": "This book is about camels",
+  "stock": 30
+}
+
+
